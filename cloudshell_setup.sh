@@ -40,5 +40,16 @@ else
     fi
 fi
 
+# Create ~/.ssh directory
+if ! cd ~/.ssh 2>&1;
+    mkdir -p "$HOME"/.ssh
+    cd ~/.ssh
+    openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out snowflake_tf_snow_key.p8 -nocrypt
+    openssl rsa -in snowflake_tf_snow_key.p8 -pubout -out snowflake_tf_snow_key.pub
+else
+    echo "-> SSH keys already generated!"
+fi
+
+
 echo ""
 echo "Your shell is almost ready. Type 'exit' then hit enter before running any further commands. Open the Cloud Shell again and the environment will be ready for use!"
