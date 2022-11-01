@@ -41,7 +41,7 @@ else
 fi
 
 # Create ~/.ssh directory
-if [ ! -d "$HOME/.ssh"]; then
+if [ ! -d "$HOME"/.ssh]; then
     mkdir -p "$HOME"/.ssh
     cd $HOME/.ssh
     `openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out snowflake_tf_snow_key.p8 -nocrypt`
