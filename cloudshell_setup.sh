@@ -40,6 +40,11 @@ else
     fi
 fi
 
+if ! type openssl 2>&1; then
+    sudo yum install openssl -y
+else
+    echo "-> Openssl is already installed!"
+
 # Create ~/.ssh directory
 if [ ! -d "$HOME/.ssh" ]; then
     mkdir -p "$HOME"/.ssh
