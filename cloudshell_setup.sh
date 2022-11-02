@@ -41,6 +41,7 @@ else
 fi
 
 if ! type openssl 2>&1; then
+    echo "Trying to install Openssl"
     sudo yum install openssl -y
 else
     echo "-> Openssl is already installed!"
