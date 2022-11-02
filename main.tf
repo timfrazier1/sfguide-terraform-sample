@@ -30,6 +30,7 @@ resource "snowflake_warehouse" "warehouse" {
     provider "snowflake" {
         alias = "security_admin"
         role  = "SECURITYADMIN"
+        region = "us-east-2.aws"
     }
     resource "snowflake_role" "role" {
         provider = snowflake.security_admin
